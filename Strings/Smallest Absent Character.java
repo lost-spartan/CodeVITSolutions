@@ -3,19 +3,22 @@ import java.util.*;
 public class Main
 {
 	public static void main(String[] args) {
-		String str = "barcelona";
+		String str = "ccbb";
 		smallestChar(str);
 	}
 	
 	public static void smallestChar(String str){
-	    char[] arr = str.toCharArray();
-	    Arrays.sort(arr);
+	    ArrayList<Character> lst = new ArrayList<>();
 	    
-    for(int i=0; i<arr.length; i++){
-	      if(arr[i + 1] != arr[i] + 1 && arr[i + 1] != arr[i]) {
-	          System.out.println((char)(arr[i] + 1));
-	          break;
-	      } 
+	    for(int i=0; i<26; i++){
+	        lst.add((char)('a'+i));
 	    }
+	    
+	    for(int i=0; i< str.length(); i++){
+	        char a = str.charAt(i);
+	        lst.remove(Character.valueOf(a));
+	    }
+	    
+	    System.out.println(lst.get(0));
 	}
 }
